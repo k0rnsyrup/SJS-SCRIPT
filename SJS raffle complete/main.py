@@ -26,7 +26,7 @@ def enter_raffle(email):
 
 
     link = "https://slamjamsocialism-drops.com/graphql"
-    anti_api_key = "57d2dcc5417a508d191b7c92186e7bee"
+    anti_api_key = "" #ENTER YOUR ANTI-CAPTCHA KEY HERE
     site_key = "6LfYhz0UAAAAAJFKp28Sg0NnAEIPMfKI1RJSGsdB"
     client = AnticaptchaClient(anti_api_key)
     task = NoCaptchaTaskProxylessTask(link, site_key)
@@ -104,12 +104,9 @@ def enter_raffle(email):
 
 
     response = sess.post("https://slamjamsocialism-drops.com/graphql", headers=headers, json=data, proxies=proxy)
-    print(response.status_code)
-    print(response.content)
+    #print(response.status_code)
+    #print(response.content)
     content_type_header = response.headers.get('content-type')
-    #parsed = json.loads(response.content.decode('utf8'))
-    #parsed = response.text.decode('utf8')
-    #print(parsed
     flag = b'\x83\x0e\x00\x00\x04\x9aq\xe4/\x98H"\x1bH\xda\xd5\x92LR\xca,\xea:-\x95%T\xc0\x9d\xfb\xa0t\xc16' in response.content
     
     return flag
